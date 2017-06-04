@@ -1,0 +1,83 @@
+.toolbar, 
+.footer-editor {
+    padding: 8px;
+    background-color: #f1f1f1;
+}
+.footer-editor {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-editor label input {
+    margin-right: 10px;
+}
+.checkHtml {
+    line-height: 2em;
+    font-size: .82em;
+    padding: 6px 10px;
+}
+.wrapper-editor {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+}
+.content-editor {
+    flex: 1;
+    overflow: auto;
+    outline: none;
+}
+.content-editor__text {
+    padding: 3px 26px 40px;
+    background-color: #fff;
+}
+.prettyprint.content-editor {
+    background-color: #222;
+    margin: 0;
+}
+ select, img {
+     vertical-align: middle;
+ }
+.toolbar {
+    font-size: 0;
+}
+ .toolbar--button {
+     border:0;
+     background-color: #f1f1f1;
+     padding:9px;
+     transition: all .3s;
+     cursor: pointer;
+     vertical-align: middle;
+ }
+  .toolbar--button:hover {
+      background-color: #f9f9f9;
+  }
+  .toolbar--button:active {
+      background-color: #fff;
+      outline: 0;
+  }
+ .toolbar--button img {
+     height: 13px;
+     width: 13px;
+ }
+ .toolbar--button.selected {
+     background-color: #f9f9f9;
+}
+.toolbar select {
+    margin: auto 12px;
+    vertical-align: middle;
+}
+.btnSave, .btnDel {
+    background-color: seagreen;
+    color: #fff;
+    padding: 10px 23px;
+    border-radius: 1px;
+    border: 0;
+}
+.btnDel {
+    background-color: #bf3636;
+    margin-right: 9px;
+    margin-left: auto;
+}

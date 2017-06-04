@@ -1,0 +1,49 @@
+<div class="wrapper-editor">
+<div class="toolbar">
+<button class="toolbar--button" (click)="applyFormat('undo');"><img src="/assets/img/undo.svg" alt=""></button>
+<button class="toolbar--button" (click)="applyFormat('redo');"><img src="/assets/img/redo.svg" alt=""></button>
+
+
+<select  [(ngModel)]="formattingBlock" (change)="changeFormatting()">
+  <option *ngFor="let opt of formatting" [value]="opt.key">{{opt.value}}</option>
+</select>
+
+<button class="toolbar--button" [class.selected]="currentTag === 'b'" (click)="applyFormat('bold');"><img src="/assets/img/bold.svg" alt=""></button>
+<button class="toolbar--button" [class.selected]="currentTag === 'i'" (click)="applyFormat('italic');"><img src="/assets/img/italic.svg" alt=""></button>
+<button class="toolbar--button" [class.selected]="currentTag === 'u'" (click)="applyFormat('underline');"><img src="/assets/img/underline.svg" alt=""></button>
+
+
+<button class="toolbar--button" (click)="applyFormat('justifyleft');"><img src="/assets/img/align-left.svg" alt=""></button>
+<button class="toolbar--button" (click)="applyFormat('justifycenter');"><img src="/assets/img/align-center.svg" alt=""></button>
+<button class="toolbar--button" (click)="applyFormat('justifyright');"><img src="/assets/img/align-right.svg" alt=""></button>
+
+<button class="toolbar--button" [class.selected]="formattingBlock === 'ol'" (click)="applyFormat('insertunorderedlist');"><img src="/assets/img/list-bullet.svg" alt=""></button>
+<button class="toolbar--button" [class.selected]="formattingBlock === 'ul'" (click)="applyFormat('insertorderedlist');"><img src="/assets/img/list-numbers.svg" alt=""></button>
+
+<button class="toolbar--button" (click)="applyFormat('outdent');"><img src="/assets/img/outdent.svg" alt=""></button>
+<button class="toolbar--button" (click)="applyFormat('indent');"><img src="/assets/img/indent.svg" alt=""></button>
+
+<button class="toolbar--button" (click)="addLink();"><img src="/assets/img/link.svg" alt=""></button>
+<button class="toolbar--button" (click)="applyFormat('removeFormat');"><img src="/assets/img/clear.svg" alt=""></button>
+
+</div>
+
+
+<div contenteditable="true"
+ [hidden]="codeView"
+ class="content-editor content-editor__text" 
+ id="editorContent"
+ [(innerHTML)]="content"
+ (mouseup) = "getPosition($event)"
+ (keyup)="getPosition($event)"></div>
+
+<app-codeview class="content-editor" [hidden]="!codeView" [content]="content"></app-codeview>
+<div class="footer-editor">
+  <div class="checkHtml">
+    <label><input type="checkbox" [(ngModel)]="codeView" (change)='updateHtml()' />HTML</label>
+  </div>
+  
+  <button [hidden]="!localStoreActive" (click)="delLocalStore()" class="btnDel">Delete Localstore</button>
+  <button (click)="save()" class="btnSave">Save</button>
+</div>
+</div>
